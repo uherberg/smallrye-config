@@ -8,23 +8,25 @@
     <artifactId>smallrye-config-release</artifactId>
     <version>1.5.0</version>
 
+    <packaging>pom</packaging>
+
     <licenses>
-      <license>
-        <name>Apache License, Version 2.0</name>
-        <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
-      </license>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
     </licenses>
 
     <issueManagement>
-      <system>GitHub</system>
-      <url>https://github.com/smallrye/smallrye-config/issues</url>
+        <system>GitHub</system>
+        <url>https://github.com/smallrye/smallrye-config/issues</url>
     </issueManagement>
 
     <scm>
-      <connection>scm:git:git@github.com:smallrye/smallrye-config.git</connection>
-      <developerConnection>scm:git:git@github.com:smallrye/smallrye-config.git</developerConnection>
-      <url>https://github.com/smallrye/smallrye-config/tree/reloc</url>
-      <tag>HEAD</tag>
+        <connection>scm:git:git@github.com:smallrye/smallrye-config.git</connection>
+        <developerConnection>scm:git:git@github.com:smallrye/smallrye-config.git</developerConnection>
+        <url>https://github.com/smallrye/smallrye-config/tree/reloc</url>
+        <tag>HEAD</tag>
     </scm>
 
     <distributionManagement>
@@ -34,5 +36,23 @@
             <version>1.5.0</version>
         </relocation>
     </distributionManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
