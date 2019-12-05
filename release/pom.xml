@@ -8,6 +8,25 @@
     <artifactId>smallrye-config-release</artifactId>
     <version>1.5.0</version>
 
+    <licenses>
+      <license>
+        <name>Apache License, Version 2.0</name>
+        <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      </license>
+    </licenses>
+
+    <issueManagement>
+      <system>GitHub</system>
+      <url>https://github.com/smallrye/smallrye-config/issues</url>
+    </issueManagement>
+
+    <scm>
+      <connection>scm:git:git@github.com:smallrye/smallrye-config.git</connection>
+      <developerConnection>scm:git:git@github.com:smallrye/smallrye-config.git</developerConnection>
+      <url>https://github.com/smallrye/smallrye-config/tree/reloc</url>
+      <tag>HEAD</tag>
+    </scm>
+
     <distributionManagement>
         <relocation>
             <groupId>io.smallrye.config</groupId>
