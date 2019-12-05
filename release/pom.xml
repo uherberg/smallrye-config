@@ -10,6 +10,9 @@
 
     <packaging>pom</packaging>
 
+    <name>Empty Release Project to Avoid Maven Bug (relocation)</name>
+    <description>Empty Release Project to Avoid Maven Bug</description>
+
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
