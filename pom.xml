@@ -11,7 +11,17 @@
     <packaging>pom</packaging>
 
     <name>SmallRye: MicroProfile Config Parent (relocation)</name>
+    <description>Relocation for MicroProfile Config artifact</description>
     <url>http://smallrye.io</url>
+
+    <developers>
+        <developer>
+            <name>David Lloyd</name>
+            <email>david.lloyd@redhat.com</email>
+            <organization>Red Hat</organization>
+            <organizationUrl>https://www.redhat.com/en</organizationUrl>
+        </developer>
+    </developers>
 
     <licenses>
         <license>

@@ -11,7 +11,17 @@
     <packaging>pom</packaging>
 
     <name>Empty Release Project to Avoid Maven Bug (relocation)</name>
-    <description>Empty Release Project to Avoid Maven Bug</description>
+    <description>Relocation for MicroProfile Config artifact</description>
+    <url>http://smallrye.io</url>
+
+    <developers>
+        <developer>
+            <name>David Lloyd</name>
+            <email>david.lloyd@redhat.com</email>
+            <organization>Red Hat</organization>
+            <organizationUrl>https://www.redhat.com/en</organizationUrl>
+        </developer>
+    </developers>
 
     <licenses>
         <license>
