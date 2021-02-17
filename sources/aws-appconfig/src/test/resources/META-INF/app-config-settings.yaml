@@ -1,0 +1,5 @@
+---
+configurationProfile: config
+application: my-service
+clientID: my-service
+environment: dev

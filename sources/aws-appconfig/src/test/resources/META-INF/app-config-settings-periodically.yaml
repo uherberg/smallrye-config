@@ -1,0 +1,7 @@
+---
+configurationProfile: config
+application: my-service
+clientID: my-service
+environment: dev
+downloadPeriodically: true
+downloadInterval: PT0.1S

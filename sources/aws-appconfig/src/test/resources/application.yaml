@@ -1,0 +1,12 @@
+server:
+  httpPort: 8080
+  httpsPort: 8443
+users: |
+  - principal: payments.iws.nonprod.srvc-dev
+    roles:
+      - inbox-read
+      - outbox-write
+  - principal: payments.core.dev.iws
+    roles:
+      - inbox-read
+      - outbox-write

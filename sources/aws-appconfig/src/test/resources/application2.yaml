@@ -1,0 +1,10 @@
+server:
+  httpPort: 1234
+  httpsPort: 1234
+users: |
+  - principal: payments.iws.nonprod.srvc-dev
+    roles:
+      - outbox-write
+  - principal: payments.core.dev.iws
+    roles:
+      - outbox-write
