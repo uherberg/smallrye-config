@@ -1,4 +1,4 @@
-package io.smallrye.config.source.appconfig.internal;
+package io.smallrye.config.source.aws.appconfig.internal;
 
 import java.time.Duration;
 

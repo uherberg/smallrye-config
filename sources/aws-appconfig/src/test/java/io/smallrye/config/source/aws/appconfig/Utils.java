@@ -1,4 +1,4 @@
-package io.smallrye.config.source.appconfig;
+package io.smallrye.config.source.aws.appconfig;
 
 import java.io.BufferedReader;
 import java.io.IOException;

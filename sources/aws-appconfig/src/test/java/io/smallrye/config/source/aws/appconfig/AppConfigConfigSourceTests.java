@@ -1,4 +1,4 @@
-package io.smallrye.config.source.appconfig;
+package io.smallrye.config.source.aws.appconfig;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;

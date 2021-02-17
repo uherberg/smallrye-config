@@ -1,4 +1,4 @@
-package io.smallrye.config.source.appconfig;
+package io.smallrye.config.source.aws.appconfig;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -11,6 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
+import io.smallrye.config.source.aws.appconfig.internal.Config;
 import org.eclipse.microprofile.config.spi.ConfigSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +22,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
-import io.smallrye.config.source.appconfig.internal.Config;
 import software.amazon.awssdk.services.appconfig.AppConfigClient;
 import software.amazon.awssdk.services.appconfig.model.GetConfigurationRequest;
 import software.amazon.awssdk.services.appconfig.model.GetConfigurationResponse;

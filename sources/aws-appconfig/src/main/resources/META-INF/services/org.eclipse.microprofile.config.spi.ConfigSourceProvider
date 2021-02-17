@@ -1,1 +1,1 @@
-io.smallrye.config.source.appconfig.AppConfigConfigSourceProvider
+io.smallrye.config.source.aws.appconfig.AppConfigConfigSourceProvider
