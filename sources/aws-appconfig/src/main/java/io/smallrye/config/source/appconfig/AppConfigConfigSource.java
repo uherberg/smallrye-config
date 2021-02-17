@@ -27,9 +27,77 @@ import software.amazon.awssdk.services.appconfig.model.GetConfigurationRequest;
 import software.amazon.awssdk.services.appconfig.model.GetConfigurationResponse;
 
 /**
- * <p>
- * A {@link ConfigSource} implementation that reads values from AWS App Config
- * </p>
+ * <h1>AWS App Config Config Source</h1>
+ *
+ * This {@link ConfigSource} implementation reads selected values from a single value in AWS AppConfig
+ * (stored as YAML or JSON). The utility looks for a file at 'META-INF/app-config-settings.yaml'.
+ * This file is used to define the configuration for AWS App Config.
+ *
+ * This Config Source has a higher priority than the default 'microprofile-config.properties'.
+ *
+ *
+ * <h2>Usage</h2>
+ *
+ * To use the AWS AppConfig Config Source, add the following to your Maven 'pom.xml':
+ *
+ * <pre>
+ * &lt;dependency&gt;
+ *     &lt;groupId&gt;io.smallrye.config&lt;/groupId&gt;
+ *     &lt;artifactId&gt;smallrye-config-source-aws-appconfig&lt;/artifactId&gt;
+ *     &lt;version&gt;{version}&lt;/version&gt;
+ * &lt;/dependency&gt;
+ * </pre>
+ *
+ * This Config Source will automatically register with your application.
+ *
+ *
+ * <h2>Configuration</h2>
+ *
+ * The config source will execute a
+ * <a href="https://docs.aws.amazon.com/cli/latest/reference/appconfig/get-configuration.html">get-configuration</a>
+ * query and load the value, stored as YAML or JSON, into the Configuration.
+ * For example, if you store the following YAML in AppConfig
+ *
+ * <pre>
+ *     server:
+ *         httpPort: 8080
+ *         httpsPort: 8443
+ * </pre>
+ *
+ *
+ * Given the following settings file:
+ *
+ * <pre>
+ *     ---
+ *     configurationProfile: config.yaml
+ *     application: my-app
+ *     clientID: my-service
+ *     environment: dev
+ * </pre>
+ *
+ *
+ * Will result in the following property names and values in the configuration object:
+ *
+ * <pre>
+ * 	server.httpPort=8080
+ * 	server.httpsPort=8443
+ * </pre>
+ *
+ *
+ * <h2>Periodic Downloading</h2>
+ *
+ * By default, the config values will only be retrieved once at application start-up.
+ * However, this Config Source allows the refresh values periodically.
+ * In order to enable this, add the following lines to the 'META-INF/app-config-settings.yaml' file:
+ *
+ * <pre>
+ *     downloadPeriodically: true
+ *     downloadInterval: PT10S
+ * </pre>
+ *
+ * The `downloadInterval` is formatted using the
+ * <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations">ISO8601 notation</a>. If omitted, the default of
+ * once every 10 minutes is used.
  */
 public class AppConfigConfigSource implements ConfigSource {
 

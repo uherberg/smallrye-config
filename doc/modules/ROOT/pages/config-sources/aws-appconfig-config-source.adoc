@@ -1,0 +1,54 @@
+[[aws-appconfig-config-source]]
+== AWS App Config Config Source
+
+This ConfigSource implementation reads selected values from a single value in AWS AppConfig (stored as YAML or JSON). The utility looks for a file at `META-INF/app-config-settings.yaml`. This file is used to define the configuration for AWS App Config.
+
+This Config Source has a higher priority than the default `microprofile-config.properties`.
+
+=== Usage
+
+To use the AWS AppConfig Config Source, add the following to your Maven `pom.xml`:
+
+[source,xml,subs="verbatim,attributes"]
+----
+<dependency>
+    <groupId>io.smallrye.config</groupId>
+    <artifactId>smallrye-config-source-aws-appconfig</artifactId>
+    <version>{version}</version>
+</dependency>
+----
+
+This Config Source will automatically register with your application.
+
+=== Configuration
+
+The config source will execute a https://docs.aws.amazon.com/cli/latest/reference/appconfig/get-configuration.html[get-configuration] query and load the value, stored as YAML or JSON, into the Configuration. For example, if you store the following YAML in AppConfig
+
+    server:
+        httpPort: 8080
+        httpsPort: 8443
+
+
+Given the following settings file:
+
+    ---
+    configurationProfile: config.yaml
+    application: my-app
+    clientID: my-service
+    environment: dev
+
+
+Will result in the following property names and values in the configuration object:
+
+	server.httpPort=8080
+	server.httpsPort=8443
+
+=== Periodic Downloading
+
+By default, the config values will only be retrieved once at application start-up. However, this Config Source allows the refresh values periodically.
+In order to enable this, add the following lines to the `META-INF/app-config-settings.yaml` file:
+
+    downloadPeriodically: true
+    downloadInterval: PT10S
+
+The `downloadInterval` is formatted using the https://en.wikipedia.org/wiki/ISO_8601#Durations[ISO8601 notation]. If omitted, the default of once every 10 minutes is used.
